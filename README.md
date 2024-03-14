@@ -5,13 +5,17 @@
    cd C:\nginx -----> folder name can be changed
 
 2. First we should start the server by clicking or cmd commands. For cmd commands we should add the path in environment path variables.
+   for start  -> nginx start
+   for stop   -> nginx stop
+   for version   -> nginx -v
+   for reload server   -> nginx -s reload
    
-3. For setup the server we needed to change nginx.conf file. We can edit that file using VSCode editor.
+4. For setup the server we needed to change nginx.conf file. We can edit that file using VSCode editor.
 
-4. Then we need to reload the server.To change the settings.
+5. Then we need to reload the server.To change the settings.
    nginx -s reload
 
-5. Then we can work / access and see the newly changes.
+6. Then we can work / access and see the newly changes.
 
 # CREATE API GATEWAY
 
