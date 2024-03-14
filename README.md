@@ -1,5 +1,6 @@
 # NGINX-practical
 
+# SETUP NGINX
 1. First we need to setup NGINX server correctly. For that we need to go to NGINX website and download the proejct files.Then extract into c folder like this
    cd C:\nginx -----> folder name can be changed
 
@@ -11,3 +12,42 @@
    nginx -s reload
 
 5. Then we can work / access and see the newly changes.
+
+# CREATE API GATEWAY
+
+#user  nobody;
+worker_processes  1;
+
+#error_log  logs/error.log;
+#error_log  logs/error.log  notice;
+#error_log  logs/error.log  info;
+
+#pid        logs/nginx.pid;
+
+
+events {
+    worker_connections  1024;
+}
+
+
+http {
+    server {
+        listen 80;
+
+        location /service1/ {
+            proxy_pass http://localhost:5050/;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;
+        }
+
+        location /service2/ {
+            proxy_pass http://localhost:8080/;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;
+        }
+    }
+}
