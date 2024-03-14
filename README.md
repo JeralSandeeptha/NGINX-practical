@@ -16,3 +16,7 @@
    nginx -s reload
 
 6. Then we can work / access and see the newly changes.
+
+7. According to this nginx server setup,
+   1st service is running on ----> http://localhost/service1
+   2nd service is running on ----> http://localhost/service2
